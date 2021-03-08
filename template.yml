@@ -82,7 +82,7 @@ Resources:
           Properties:
             Path: /{id}
             Method: GET
- # This is a Lambda function config associated with the source code: get-by-id.js
+ # This is a Lambda function config to say hello
  # THIS IS THE START OF MY CUSTOM CODE
   dianaFunction:
     Type: AWS::Serverless::Function
@@ -94,7 +94,7 @@ Resources:
       Timeout: 60
       Description: My simple function which will say hello
       Policies:
-        Give Create/Read/Update/Delete Permissions to the SampleTable
+        # Give Create/Read/Update/Delete Permissions to the SampleTable
         - DynamoDBCrudPolicy:
             TableName: !Ref SampleTable
       Environment:
@@ -102,11 +102,11 @@ Resources:
           # Make table name accessible as environment variable from function code during execution
           SAMPLE_TABLE: !Ref SampleTable
       # Events:
-        # Api:
-        #   Type: Api
-        #   Properties:
-        #     Path: /{id}
-        #     Method: GET
+      #   Api:
+      #     Type: Api
+      #     Properties:
+      #       Path: /
+      #       Method: POST
 
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
