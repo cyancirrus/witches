@@ -169,7 +169,7 @@ Resources:
       ProvisionedThroughput:
         ReadCapacityUnits: 2
         WriteCapacityUnits: 2
-  # Test layer
+    # Test layer
   numpyLayer:
     Type: AWS::Serverless::LayerVersion
     Properties:
