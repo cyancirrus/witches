@@ -104,9 +104,31 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /hellobb
+            Path: /goddess/diana
             Method: GET
-
+  
+  hecateFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: src/handlers/hecate-say-hello.hecateFunction
+      Runtime: python3.8
+      MemorySize: 128
+      Timeout: 60
+      Description: A Lambda function that returns a static string.
+      Environment:
+        Variables:
+          DDB_TABLE: !Ref SampleTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SampleTable
+        - AWSLambdaBasicExecutionRole
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /goddess/hecate
+            Method: GET
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
