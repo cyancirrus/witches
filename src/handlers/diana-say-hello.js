@@ -21,7 +21,7 @@ exports.dianaFunction = async (event, context) => {
     //     body: JSON.stringify(message)
     // };
     const response = {
-        body: JSON.stringify('hello there!')
+        body: JSON.stringify('hello there! whats up qt pie? would we automaticallu update?')
     };
     console.log(`body: ${response.body}`);
     return response;
