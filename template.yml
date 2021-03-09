@@ -119,11 +119,11 @@ Resources:
       Timeout: 60
       Description: A Lambda function that returns a static string.
       Environment:
-        Variables:
-          DDB_TABLE: !Ref SampleTable
+        # Variables:
+        #   DDB_TABLE: !Ref SampleTable
       Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref SampleTable
+        # - DynamoDBCrudPolicy:
+        #     TableName: !Ref SampleTable
         - AWSLambdaBasicExecutionRole
       Events:
         Api:
