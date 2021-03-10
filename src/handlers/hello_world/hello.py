@@ -5,5 +5,5 @@ from src.handlers.hello_world.world import myString
 def helloFunction(event, context):
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello my name is HELLO, from Lambda whats up!' + myString() + event['body']['hello'])
+        'body': json.dumps('Hello my name is HELLO, from Lambda whats up!' + myString() + event['body'])
     }
