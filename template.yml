@@ -128,7 +128,6 @@ Resources:
         Api:
           Type: Api
           Properties:
-            # RestApiId: !Ref MyApi
             Path: /goddess/helloworld
             Method: any
 
