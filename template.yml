@@ -131,8 +131,6 @@ Resources:
             RestApiId: !Ref MyApi
             Path: /goddess/helloworld
             Method: any
-            Auth:
-              ApiKeyRequired: true
 
   hecateFunction:
     Type: AWS::Serverless::Function
