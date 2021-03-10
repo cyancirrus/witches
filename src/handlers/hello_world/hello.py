@@ -10,3 +10,6 @@ def helloFunction(event, context):
         'statusCode': 200,
         'body': json.dumps('Hello my name is HELLO, from Lambda whats up!' + myString() + name)
     }
+
+
+
