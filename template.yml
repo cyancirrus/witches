@@ -107,6 +107,24 @@ Resources:
             Path: /goddess/diana
             Method: GET
   
+  demoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: ./
+      Handler: src/handlers/demo-handler.demoFunction
+      Runtime: python3.8
+      MemorySize: 128
+      Timeout: 60
+      Description: A Lambda function that returns a static string.
+      Policies:
+        - AWSLambdaBasicExecutionRole
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /demo/helloworld
+            Method: any
+
   helloFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -122,9 +140,8 @@ Resources:
         Api:
           Type: Api
           Properties:
-            Path: /goddess/helloworld
+            Path: /demo
             Method: any
-
   hecateFunction:
     Type: AWS::Serverless::Function
     Properties:
