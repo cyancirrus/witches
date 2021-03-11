@@ -168,6 +168,11 @@ Resources:
         #     TableName: !Ref SampleTable
         - AWSLambdaBasicExecutionRole
       Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /data/hello/what
+            Method: get
         ApiKey:
           Type: Api
           Properties:
