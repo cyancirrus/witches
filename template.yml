@@ -31,6 +31,12 @@ Resources:
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
+  MyApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Auth:
+        ApiKeyRequired: true # sets for all methods
   # This is a Lambda function config associated with the source code: get-all-items.js
   getAllItemsFunction:
     Type: AWS::Serverless::Function
@@ -161,11 +167,14 @@ Resources:
         #     TableName: !Ref SampleTable
         - AWSLambdaBasicExecutionRole
       Events:
-        Api:
+        ApiKey:
           Type: Api
           Properties:
-            Path: /goddess/hecate
-            Method: GET
+            RestApiId: !Ref MyApi
+            Path: /
+            Method: get
+            Auth:
+              ApiKeyRequired: true
   # Each Lambda function is defined by properties:
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
 
