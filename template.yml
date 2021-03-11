@@ -148,6 +148,7 @@ Resources:
           Properties:
             Path: /demo
             Method: any
+
   hecateFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -171,7 +172,7 @@ Resources:
           Type: Api
           Properties:
             RestApiId: !Ref MyApi
-            Path: /
+            Path: /data/hello
             Method: get
             Auth:
               ApiKeyRequired: true
